@@ -1,0 +1,29 @@
+
+:root {
+  color-scheme: dark;
+  font-family: Arial, sans-serif;
+  background: #080a09;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #b6ff65;
+  outline-offset: 4px;
+}
+
+::selection {
+  background: #b6ff65;
+  color: #080a09;
+}

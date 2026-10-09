@@ -1,0 +1,387 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #e6e9e4;
+  background: #080a09;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #b6ff65;
+  --panel: #101411;
+  --border: #29322b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.desktop {
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 6%;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 35%, #152017 0%, transparent 55%),
+    #080a09;
+}
+
+.desktop::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.12;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    transparent 3px,
+    #a8ffb0 4px
+  );
+}
+
+.topbar {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.brand {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.brand span {
+  color: var(--green);
+}
+
+.system-status, .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #9da89d;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #b6ff6570;
+  display: inline-block;
+}
+
+.window-controls {
+  display: flex;
+  gap: 18px;
+  color: #879087;
+  font-size: 17px;
+}
+
+.hero {
+  padding: 82px 0 65px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow, .section-label, footer, small {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+}
+
+.hero h1 {
+  font-size: clamp(64px, 10vw, 124px);
+  letter-spacing: -7px;
+  line-height: 0.85;
+  margin: 30px 0;
+  font-weight: 700;
+}
+
+.green {
+  color: var(--green);
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #dce4d9;
+}
+
+.intro {
+  color: #9ca79d;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.enter-button {
+  margin-top: 20px;
+  background: var(--green);
+  border: 1px solid var(--green);
+  padding: 15px 19px;
+  color: #10150d;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.enter-button:hover {
+  background: transparent;
+  color: var(--green);
+}
+
+.workspace {
+  padding: 35px 0 60px;
+}
+
+.section-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #8d998e;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 28px 0;
+}
+
+.app-icon {
+  width: 125px;
+  min-height: 112px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #b7c0b7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  transition: 0.2s;
+}
+
+.app-icon:hover, .app-icon.selected {
+  background: #182019;
+  border-color: #3d5839;
+  color: var(--green);
+}
+
+.app-symbol {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #52614e;
+  background: #111711;
+  color: var(--green);
+  font-size: 24px;
+}
+
+.app-window {
+  border: 1px solid #52634c;
+  background: #0c100d;
+  margin: 10px 0 30px;
+  box-shadow: 0 12px 50px #0008;
+  animation: appear 0.25s ease-out;
+}
+
+.app-titlebar {
+  background: #1c281b;
+  padding: 13px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 12px 'Share Tech Mono', monospace;
+  color: var(--green);
+  border-bottom: 1px solid #52634c;
+}
+
+.close-button {
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 22px;
+}
+
+.app-content {
+  padding: 26px;
+  color: #c4cec3;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.app-content h2 {
+  font: 18px 'Share Tech Mono', monospace;
+  color: var(--green);
+  margin-top: 0;
+}
+
+.muted, .app-content small {
+  color: #829080;
+}
+
+.project {
+  border-left: 2px solid #435c3c;
+  padding: 8px 0 8px 16px;
+  margin: 20px 0;
+}
+
+.skill {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 13px 0;
+  font-size: 13px;
+}
+
+.skill .green {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+}
+
+.terminal-output {
+  font: 13px/1.9 'Share Tech Mono', monospace;
+  overflow-wrap: anywhere;
+}
+
+.command-line {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  color: var(--green);
+  font: 13px 'Share Tech Mono', monospace;
+}
+
+.command-line input {
+  min-width: 0;
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  caret-color: var(--green);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-top: 1px solid var(--border);
+  padding: 22px 0;
+  color: #768174;
+  font-size: 9px;
+}
+
+.boot-screen {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--green);
+  letter-spacing: 2px;
+  text-align: center;
+  gap: 18px;
+}
+
+.boot-logo {
+  font: 700 64px 'Space Grotesk', sans-serif;
+  text-shadow: 0 0 30px #b6ff6560;
+}
+
+.boot-screen small {
+  color: #81917b;
+}
+
+.progress {
+  height: 3px;
+  background: #253023;
+  width: min(280px, 80%);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  animation: load 1.1s ease-out forwards;
+}
+
+@keyframes load {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .desktop {
+    padding: 0 5%;
+  }
+
+  .hero {
+    padding: 65px 0 45px;
+  }
+
+  .hero h1 {
+    letter-spacing: -4px;
+  }
+
+  .app-grid {
+    gap: 8px;
+  }
+
+  .app-icon {
+    width: calc(33.333% - 6px);
+    font-size: 9px;
+  }
+
+  .skill {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  .section-label {
+    font-size: 9px;
+  }
+}
